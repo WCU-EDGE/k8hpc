@@ -28,7 +28,7 @@ for i in range(num_nodes):
     node = request.XenVM("worker-" + str(i))
   node.cores = 4
   node.ram = 8192
-  bs_landing = node.Blockstore("bs_image", "/image")
+  bs_landing = node.Blockstore("bs_image_" + str(i), "/image")
   bs_landing.size = "500GB"
   node.routable_control_ip = "true" 
   node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"
