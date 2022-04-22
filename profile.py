@@ -48,7 +48,7 @@ for i in range(params.n):
 
   if i == 0:
     node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/install_jenkins.sh"))
-    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/kube_manager.sh " + str(params.n))
+    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/kube_manager.sh " + str(params.n)))
   else:
     node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/kube_worker.sh"))
     
