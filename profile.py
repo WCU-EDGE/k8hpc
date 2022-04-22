@@ -7,9 +7,14 @@ request = pc.makeRequestRSpec()
 
 tourDescription = \
 """
-This profile provides the template for a compute node with Docker installed on Ubuntu 18.04
+This profile provides the template to launch a Kubernetes cluster. 
 """
 
+pc.defineParameter( "n", "Number of kubelet (4 or more)", portal.ParameterType.INTEGER, 4 )
+
+if params.n < 5:
+  portal.context.reportError( portal.ParameterError( "You must request at least 4 kubelet nodes." ) )
+  
 #
 # Setup the Tour info with the above description and instructions.
 #  
@@ -21,7 +26,7 @@ prefixForIP = "192.168.1."
 link = request.LAN("lan")
 
 num_nodes = 4
-for i in range(num_nodes):
+for i in range(params.n):
   if i == 0:
     node = request.XenVM("head")
   else:
@@ -43,7 +48,7 @@ for i in range(num_nodes):
 
   if i == 0:
     node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/install_jenkins.sh"))
-    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/kube_manager.sh"))
+    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/kube_manager.sh " + str(params.n))
   else:
     node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/kube_worker.sh"))
     
