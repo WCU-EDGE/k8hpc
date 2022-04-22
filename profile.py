@@ -11,6 +11,7 @@ This profile provides the template to launch a Kubernetes cluster.
 """
 
 pc.defineParameter( "n", "Number of kubelet (4 or more)", portal.ParameterType.INTEGER, 4 )
+params = pc.bindParameters()
 
 if params.n < 5:
   portal.context.reportError( portal.ParameterError( "You must request at least 4 kubelet nodes." ) )
