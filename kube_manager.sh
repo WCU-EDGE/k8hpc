@@ -7,6 +7,10 @@ sudo mkdir -p /opt/keys/flagdir
 sudo chown nobody:nogroup /opt/keys
 sudo chmod -R a+rwx /opt/keys
 
+hostname > /opt/keys/headnode
+sed -i "s/KUBEHEAD/$(cat /opt/keys/headnode)/g" /etc/docker/daemon.json
+sudo systemctl daemon-reload
+sudo systemctl restart docker
 
 # Create the permissions file for the NFS directory.
 computes=$(($1 + 1))
