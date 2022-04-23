@@ -35,7 +35,7 @@ for i in range(params.n):
   node.ram = 8192
   bs_landing = node.Blockstore("bs_image_" + str(i), "/image")
   bs_landing.size = "50GB"
-  bs_landing = node.Blockstore("bs_registry_" + str(i), "/kubelet")
+  bs_landing = node.Blockstore("bs_kubelet_" + str(i), "/var/lib/kubelet")
   bs_landing.size = "450GB"
   
   node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"
