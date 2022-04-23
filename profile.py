@@ -28,13 +28,20 @@ num_nodes = 4
 for i in range(params.n):
   if i == 0:
     node = request.XenVM("head")
+    node.routable_control_ip = "true" 
   else:
     node = request.XenVM("worker-" + str(i))
   node.cores = 4
   node.ram = 8192
   bs_landing = node.Blockstore("bs_image_" + str(i), "/image")
-  bs_landing.size = "500GB"
-  node.routable_control_ip = "true" 
+  bs_landing.size = "100GB"
+  bs_landing = node.Blockstore("bs_registry_" + str(i), "/registry")
+  bs_landing.size = "100GB"
+  bs_landing = node.Blockstore("bs_local_scratch_" + str(i), "/local_scratch")
+  bs_landing.size = "100GB"
+   bs_landing = node.Blockstore("bs_scratch_" + str(i), "/scratch")
+  bs_landing.size = "100GB"
+  
   node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"
   iface = node.addInterface("if" + str(i))
   iface.component_id = "eth1"
