@@ -18,6 +18,9 @@ spec:
         ports:
           - name: http-port
             containerPort: 5000
+        volumeMounts:
+        - mountPath: /var/lib/registry
+          name: storage
       volumes:
-      - name: image
-      hostPath: {}
+      - name: storage
+      emptyDir: {}
