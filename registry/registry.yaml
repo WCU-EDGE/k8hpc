@@ -23,4 +23,4 @@ spec:
           name: storage
       volumes:
       - name: storage
-      emptyDir: {}
+        emptyDir: {}
