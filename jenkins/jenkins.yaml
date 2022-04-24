@@ -15,6 +15,11 @@ spec:
       containers:
       - name: jenkins
         image: KUBEHEAD:5000/jenkins:jcasc
+        env:
+        - name: JENKINS_ADMIN_ID
+          value: "admin"
+        - name: JENKINS_ADMIN_PASSWORD
+          value: "password"
         ports:
           - name: http-port
             containerPort: 8080
