@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: registry
-        image: docker/registry:latest
+        image: registry:latest
         ports:
           - name: http-port
             containerPort: 5000
