@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: jenkins
-        image: jenkins/jenkins:lts
+        image: KUBEHEAD:5000/jenkins:jcasc
         ports:
           - name: http-port
             containerPort: 8080
