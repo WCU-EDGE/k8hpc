@@ -6,6 +6,6 @@ sudo sed -i '/^    - --service-cluster-ip-range/a \ \ \ \ - --service-node-port-
 sleep 90
 
 # launch registry container on Kubernetes
-cd /local/registry/registry
+cd /local/repository/registry
 kubectl create -f registry.yaml 
 kubectl create -f registry-service.yaml
