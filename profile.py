@@ -49,8 +49,11 @@ for i in range(params.n):
   node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/install_docker.sh"))
 
   if i == 0:
-    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/jenkins/launch_jenkins.sh"))
     node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/kube_manager.sh " + str(params.n)))
+    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/registry/launch_registry.sh"))
+    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/jenkins/build_jenkins.sh"))
+    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/jenkins/launch_jenkins.sh"))
+
   else:
     node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/kube_worker.sh"))
     
