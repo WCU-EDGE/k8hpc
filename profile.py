@@ -28,9 +28,10 @@ num_nodes = 4
 for i in range(params.n):
   if i == 0:
     node = request.XenVM("head")
-    node.routable_control_ip = "true" 
   else:
     node = request.XenVM("worker-" + str(i))
+    
+  node.routable_control_ip = "true" 
   node.cores = 4
   node.ram = 8192
   bs_landing = node.Blockstore("bs_image_" + str(i), "/image")
