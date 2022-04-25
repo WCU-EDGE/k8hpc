@@ -13,38 +13,3 @@ jenkins:
 unclassified:
   location:
     url: "http://KUBEHEAD:30000"
-
-kubernetes_plugin:
-  jenkins:
-    location:
-      url: "http://KUBEHEAD:30000"
-  clouds:
-  - kubernetes:
-      name: "kubernetes"
-      connectTimeout: 5
-      containerCapStr: "10"
-      serverUrl: "https://KUBEHEAD:6443"
-      directConnection: true
-      skipTlsVerify: true
-      maxRequestsPerHostStr: "32"
-      readTimeout: 15
-      templates:
-      - name: "agent-template"
-        namespace: "jenkins"
-        volumes:
-          hostPathVolume:
-          - hostPath: "/var/run/docker.sock"
-          - mountPath: "/var/run/docker.sock" 
-        yamlMergeStrategy: "override"
-        - containers:
-          name: "golang"
-          image: "golang"
-          workingDir: "/home/jenkins/agent"
-          - args: ["9999999"]
-          - command: ["sleep"]
-        - containers:
-          name: "docker"
-          image: "docker"
-          workingDir: "/home/jenkins/agent"
-          - args: ["9999999"]
-          - command: ["sleep"]
