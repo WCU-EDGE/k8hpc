@@ -10,6 +10,14 @@ jenkins:
       permissions:
         - "Overall/Administer:admin"
         - "Overall/Read:authenticated"
+unclassified:
+  location:
+    url: "http://KUBEHEAD:30000"
+
+kubernetes_plugin:
+  jenkins:
+    location:
+      url: "http://KUBEHEAD:30000"
   clouds:
   - kubernetes:
       name: "kubernetes"
@@ -40,6 +48,3 @@ jenkins:
           workingDir: "/home/jenkins/agent"
           - args: ["9999999"]
           - command: ["sleep"]
-unclassified:
-  location:
-    url: http://KUBEHEAD:30000/
