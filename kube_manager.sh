@@ -33,3 +33,10 @@ while IFS= read -r line; do
 done < <( ls -l /users | grep 4096 | cut -d' ' -f3 )
 
 sudo -H -u lngo kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')" 
+
+# set up helm
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod +x get_helm.sh
+./get_helm.sh
+rm get_helm.sh
+
