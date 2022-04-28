@@ -81,7 +81,6 @@ controller:
   # jenkinsUrlProtocol: "https"
   # If you are not using the provided ingress you can specify `controller.jenkinsUrl` to change the url definition.
   jenkinsUrl: "http://KUBEHEAD:30000"
-  persistence.enabled: "false"
   volumes:
     jenkins-home:
       type:       EmptyDir
