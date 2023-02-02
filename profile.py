@@ -10,7 +10,7 @@ tourDescription = \
 This profile provides the template to launch a Kubernetes cluster. 
 """
 
-pc.defineParameter( "n", "Number of kubelet (4 or more)", portal.ParameterType.INTEGER, 4 )
+pc.defineParameter( "n", "Number of kubelet (4 or more)", portal.ParameterType.INTEGER, 1 )
 params = pc.bindParameters()
 
 
@@ -32,7 +32,7 @@ for i in range(params.n):
     node = request.XenVM("worker-" + str(i))
     
   node.routable_control_ip = "true" 
-  node.cores = 4
+  node.cores = 8
   node.ram = 8192
   bs_landing = node.Blockstore("bs_image_" + str(i), "/image")
   bs_landing.size = "50GB"
@@ -45,17 +45,6 @@ for i in range(params.n):
   iface.addAddress(pg.IPv4Address(prefixForIP + str(i + 1), "255.255.255.0"))
   link.addInterface(iface)
 
-  node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/install_kubernetes.sh"))
-  node.addService(pg.Execute(shell="sh", command="sudo swapoff -a"))
   node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/install_docker.sh"))
-
-  if i == 0:
-    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/kube_manager.sh " + str(params.n)))
-    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/registry/launch_registry.sh"))
-    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/jenkins/build_jenkins.sh"))
-    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/jenkins/launch_jenkins.sh"))
-
-  else:
-    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/kube_worker.sh"))
     
 pc.printRequestRSpec(request)
