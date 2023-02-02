@@ -39,7 +39,7 @@ for i in range(params.n):
   bs_landing = node.Blockstore("bs_kubelet_" + str(i), "/var/lib/kubelet")
   bs_landing.size = "450GB"
   
-  node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU22-64-BETA"
+  node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU20-64-STD"
   iface = node.addInterface("if" + str(i))
   iface.component_id = "eth1"
   iface.addAddress(pg.IPv4Address(prefixForIP + str(i + 1), "255.255.255.0"))
