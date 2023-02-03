@@ -5,17 +5,6 @@ import geni.rspec.igext as IG
 pc = portal.Context()
 request = pc.makeRequestRSpec()
 
-tourDescription = \
-"""
-This profile provides a single RawPC Docker node. 
-"""
-
-params = pc.bindParameters()
-
-tour = IG.Tour()
-tour.Description(IG.Tour.TEXT,tourDescription)
-request.addTour(tour)
-
 node = request.RawPC("head")  
 node.routable_control_ip = "true" 
 bs_landing = node.Blockstore("bs_image", "/image")
