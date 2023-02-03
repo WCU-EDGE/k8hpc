@@ -7,12 +7,12 @@ request = pc.makeRequestRSpec()
 
 tourDescription = \
 """
-This profile provides the template for a compute node with Docker installed on Ubuntu 20.04
+This profile provides the template to launch a Kubernetes cluster. 
 """
 
-#
-# Setup the Tour info with the above description and instructions.
-#  
+pc.defineParameter( "n", "Number of kubelet (4 or more)", portal.ParameterType.INTEGER, 1)
+params = pc.bindParameters()
+
 tour = IG.Tour()
 tour.Description(IG.Tour.TEXT,tourDescription)
 request.addTour(tour)
