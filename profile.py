@@ -10,6 +10,8 @@ tourDescription = \
 This profile provides a single RawPC Docker node. 
 """
 
+params = pc.bindParameters()
+
 tour = IG.Tour()
 tour.Description(IG.Tour.TEXT,tourDescription)
 request.addTour(tour)
