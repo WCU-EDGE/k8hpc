@@ -111,8 +111,11 @@ case "$1" in
     ondemand
     xdmod
     ;;
+  'convert')
+    convert
+    ;;
   *)
-    log_info "Usage: $0 {all | ... | cleanup}"
+    log_info "Usage: $0 {all | convert | ... | cleanup}"
     exit 1
     ;;
 esac
