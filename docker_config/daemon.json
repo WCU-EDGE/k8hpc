@@ -1,5 +1,4 @@
 {
-  "insecure-registries": ["KUBEHEAD:5000"],
   "data-root": "/image",
   "exec-opts": ["native.cgroupdriver=systemd"]
 }
