@@ -13,10 +13,6 @@ while [ ! -f /opt/keys/kube_done ]; do
   sleep 20
 done
 
-sed -i "s/KUBEHEAD/$(cat /opt/keys/headnode)/g" /etc/docker/daemon.json
-sudo systemctl daemon-reload
-sudo systemctl restart docker
-
 command=`tail -n 2 /opt/keys/kube.log | tr -d '\\'`
 echo $command
 sudo $command
