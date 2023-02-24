@@ -36,7 +36,7 @@ vc() {
 }
 
 network() {
-  kubectl apply -f hpc-toolset-tutorial-compute-networkpolicy.yaml
+  kubectl apply -f k8hpc-compute-networkpolicy.yaml
 }
 
 ldap() {
