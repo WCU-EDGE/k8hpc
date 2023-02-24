@@ -1,5 +1,13 @@
 #!/bin/bash
 
+log_info() {
+  printf "\n\e[0;35m $1\e[0m\n\n"
+}
+
+log_warn() {
+  printf "\e[0;33m $1\e[0m\n"
+}
+
 convert() {
   kompose convert
 }
