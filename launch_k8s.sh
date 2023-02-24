@@ -55,7 +55,7 @@ mongodb() {
 
 mysql() {
   kubectl apply -f mysql-deployment.yaml
-  kubeclt apply -f mysql-service.yaml
+  kubectl apply -f mysql-service.yaml
 }
 
 slurmdbd() {
@@ -104,7 +104,7 @@ case "$1" in
     mongodb
     mysql
     slurmdbd
-    slurmcltd
+    slurmctld
     compute
     frontend
     coldfront
