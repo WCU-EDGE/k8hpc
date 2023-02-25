@@ -6,6 +6,7 @@ metadata:
     io.kompose.service: data-db
   name: data-db
 spec:
+  storageClassName: local
   accessModes:
     - ReadWriteOnce
   resources:
