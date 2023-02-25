@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: mysql-claim1
-  name: mysql-claim0
+  name: mysql-claim1
 spec:
   storageClassName: local
   accessModes:
