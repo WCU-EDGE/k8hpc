@@ -1,25 +1,27 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: persistent-volume
+  name: mongodb
 spec:
   capacity:
-   storage: 6Gi
+   storage: 200Mi
   accessModes:
    - ReadWriteOnce
   hostPath:
-    path: "/users/lngo/vc"
-  storageClassName: slow
-  
-  apiVersion: v1
+    path: "/users/lngo/vc/mongodb"
+  storageClassName: local
+
+---
+
+apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: data-db-volume
+  name: datadb
 spec:
   capacity:
-   storage: 6Gi
+   storage: 200Mi
   accessModes:
    - ReadWriteOnce
   hostPath:
-    path: "/users/lngo/sc/data-db"
-  storageClassName: slow
+    path: "/users/lngo/vc/data-db"
+  storageClassName: ;pca;
