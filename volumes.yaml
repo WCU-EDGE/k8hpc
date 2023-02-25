@@ -24,4 +24,4 @@ spec:
    - ReadWriteOnce
   hostPath:
     path: "/users/lngo/vc/data-db"
-  storageClassName: ;pca;
+  storageClassName: local
