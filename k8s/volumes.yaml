@@ -31,12 +31,42 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: mysql
+  name: mysql0
 spec:
   capacity:
-   storage: 600Mi
+   storage: 200Mi
   accessModes:
    - ReadWriteOnce
   hostPath:
-    path: "/users/lngo/vc/mysql"
+    path: "/users/lngo/vc/mysql0"
+  storageClassName: local
+  
+  ---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql1
+spec:
+  capacity:
+   storage: 200Mi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: "/users/lngo/vc/mysql1"
+  storageClassName: local
+  
+  ---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql2
+spec:
+  capacity:
+   storage: 200Mi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: "/users/lngo/vc/mysql2"
   storageClassName: local
