@@ -25,3 +25,18 @@ spec:
   hostPath:
     path: "/users/lngo/vc/data-db"
   storageClassName: local
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql
+spec:
+  capacity:
+   storage: 600Mi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: "/users/lngo/vc/mysql"
+  storageClassName: local
