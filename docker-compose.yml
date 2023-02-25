@@ -25,7 +25,7 @@ services:
       - ldap
 
   mongodb:
-    image: mongo:${MONGODB_VERSION}
+    image: mongo:latest
     hostname: mongodb
     container_name: mongodb
     environment:
