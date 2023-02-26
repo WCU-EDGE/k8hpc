@@ -41,7 +41,7 @@ mysql() {
   kubectl apply -f k8s/mysql/mysql-claim1-persistentvolumeclaim.yaml 
   kubectl apply -f k8s/mysql/mysql-claim2-persistentvolumeclaim.yaml 
   kubectl apply -f k8s/mysql/mysql-service.yaml 
-  kubectl apply -f k8s/mysql/mysql-deployment.yam
+  kubectl apply -f k8s/mysql/mysql-deployment.yaml
 }
 
 slurmdbd() {
