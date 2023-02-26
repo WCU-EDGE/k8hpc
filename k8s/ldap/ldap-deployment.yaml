@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.28.0 (c4137012e)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: ldap
+  name: ldap
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: ldap
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.28.0 (c4137012e)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/k8hpc-compute: "true"
+        io.kompose.service: ldap
+    spec:
+      containers:
+        - env:
+            - name: CONTAINER_LOG_LEVEL
+              value: debug
+            - name: LDAP_REMOVE_CONFIG_AFTER_SETUP
+              value: "false"
+            - name: LDAP_RFC2307BIS_SCHEMA
+              value: "true"
+            - name: LDAP_TLS_VERIFY_CLIENT
+              value: never
+          image: ubccr/hpcts:ldap-2022.07
+          name: ldap
+          resources: {}
+      hostname: ldap
+      restartPolicy: Always
+status: {}
