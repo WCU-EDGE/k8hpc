@@ -117,6 +117,9 @@ case "$1" in
   'mysql')
     mysql
     ;;
+  'slurmdbd')
+    slurmdbd
+    ;;
   *)
     log_info "Usage: $0 {all | convert | ... | cleanup}"
     exit 1
