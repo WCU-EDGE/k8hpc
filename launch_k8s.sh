@@ -31,7 +31,7 @@ base() {
 
 mongodb() {
   kubectl apply -f k8s/mongodb/data-db-persistentvolumeclaim.yaml
-  kubectl apply -f k8s/mongodb-claim0-persistentvolumeclaim.yaml
+  kubectl apply -f k8s/mongodb/mongodb-claim0-persistentvolumeclaim.yaml
   kubectl apply -f k8s/mongodb/mongodb-service.yaml 
   kubectl apply -f k8s/mongodb/mongodb-deployment.yaml                         
 }
