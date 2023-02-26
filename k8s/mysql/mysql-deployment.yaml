@@ -29,7 +29,7 @@ spec:
         - env:
             - name: MYSQL_ALLOW_EMPTY_PASSWORD
               value: "yes"
-          image: mariadb:${MARIADB_VERSION}
+          image: mariadb:10.11.2
           name: mysql
           ports:
             - containerPort: 3306
