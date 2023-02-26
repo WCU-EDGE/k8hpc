@@ -37,8 +37,11 @@ mongodb() {
 }
 
 mysql() {
-  kubectl apply -f mysql-deployment.yaml
-  kubectl apply -f mysql-service.yaml
+  kubectl apply -f k8s/mysql/mysql-claim0-persistentvolumeclaim.yaml 
+  kubectl apply -f k8s/mysql/mysql-claim1-persistentvolumeclaim.yaml 
+  kubectl apply -f k8s/mysql/mysql-claim2-persistentvolumeclaim.yaml 
+  kubectl apply -f k8s/mysql/mysql-service.yaml 
+  kubectl apply -f k8s/mysql/mysql-deployment.yam
 }
 
 slurmdbd() {
@@ -83,7 +86,6 @@ case "$1" in
     network
     volume
     ldap
-    base
     mongodb
     mysql
     slurmdbd
