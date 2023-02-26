@@ -1,4 +1,19 @@
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: etc-slurm
+spec:
+  capacity:
+   storage: 200Mi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: "/users/lngo/vc/etc-slurm"
+  storageClassName: local
+  
+---
+
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
@@ -6,6 +21,7 @@ metadata:
     io.kompose.service: etc-slurm
   name: etc-slurm
 spec:
+  storageClassName: local
   accessModes:
     - ReadWriteOnce
   resources:
