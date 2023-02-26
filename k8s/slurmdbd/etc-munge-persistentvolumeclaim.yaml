@@ -21,6 +21,7 @@ metadata:
     io.kompose.service: etc-munge
   name: etc-munge
 spec:
+  storageClassName: local
   accessModes:
     - ReadWriteOnce
   resources:
