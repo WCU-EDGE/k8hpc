@@ -48,7 +48,7 @@ network() {
 }
 
 ldap() {
-  kubectl apply -f ldap-deployment.yaml
+  kubectl apply -f k8s/ldap-deployment.yaml
   # missing service here
 }
 
@@ -57,8 +57,9 @@ base() {
 }
 
 mongodb() {
-  kubectl apply -f mongodb-deployment.yaml
-  kubectl apply -f mongodb-service.yaml                           
+  kubectl apply -f k8s/mongodb/data-db-persistentvolumeclaim.yaml 
+  kubectl apply -f k8s/mongodb/mongodb-service.yaml 
+  kubectl apply -f k8s/mongodb/mongodb-deployment.yaml                         
 }
 
 mysql() {
