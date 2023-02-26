@@ -21,7 +21,7 @@ volume() {
 }
 
 ldap() {
-  kubectl apply -f k8s/ldap-deployment.yaml
+  kubectl apply -f k8s/ldap/ldap-deployment.yaml
   # missing service here
 }
 
