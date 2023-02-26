@@ -12,39 +12,12 @@ convert() {
   kompose convert
 }
 
-vc() {
-  ### Home volumes
-  kubectl apply -f home-persistentvolumeclaim.yaml
-
-  ### MongoDB volumes
-  kubectl apply -f mongodb-claim0-persistentvolumeclaim.yaml
-  kubectl apply -f data-db-persistentvolumeclaim.yaml
-
-  ### Slurm volumes
-  kubectl apply -f slurmdbd-state-persistentvolumeclaim.yaml
-  kubectl apply -f slurmctld-state-persistentvolumeclaim.yaml
-  kubectl apply -f etc-slurm-persistentvolumeclaim.yaml
-  kubectl apply -f etc-munge-persistentvolumeclaim.yaml
-
-  ### Compute volumes
-  kubectl apply -f cpn01-slurmd-state-persistentvolumeclaim.yaml
-  kubectl apply -f cpn02-slurmd-state-persistentvolumeclaim.yaml
-
-  ### MySQL volumes
-  kubectl apply -f mysql-claim0-persistentvolumeclaim.yaml
-  kubectl apply -f mysql-claim1-persistentvolumeclaim.yaml
-  kubectl apply -f mysql-claim2-persistentvolumeclaim.yaml
-  kubectl apply -f var-lib-mysql-persistentvolumeclaim.yaml
-
-  ### ColdFront volumes
-  kubectl apply -f srv-www-persistentvolumeclaim.yaml
-
-  ### XDMOD volumes
-  kubectl apply -f etc-xdmod-persistentvolumeclaim.yaml
+network() {
+  kubectl apply -f k8s/compute-networkpolicy.yaml
 }
 
-network() {
-  kubectl apply -f k8hpc-compute-networkpolicy.yaml
+volume() {
+  kubectl apply -f k8s/volumes.yaml
 }
 
 ldap() {
@@ -57,7 +30,8 @@ base() {
 }
 
 mongodb() {
-  kubectl apply -f k8s/mongodb/data-db-persistentvolumeclaim.yaml 
+  kubectl apply -f k8s/mongodb/data-db-persistentvolumeclaim.yaml
+  kubectl apply -f k8s/mongodb-claim0-persistentvolumeclaim.yaml
   kubectl apply -f k8s/mongodb/mongodb-service.yaml 
   kubectl apply -f k8s/mongodb/mongodb-deployment.yaml                         
 }
@@ -106,8 +80,8 @@ xdmod() {
 
 case "$1" in
   'all')
-    vc
     network
+    volume
     ldap
     base
     mongodb
@@ -122,6 +96,21 @@ case "$1" in
     ;;
   'convert')
     convert
+    ;;
+  'network')
+    network
+    ;;
+  'volume')
+    volume
+    ;;
+  'ldap')
+    ldap
+    ;;
+  'mongodb')
+    mongodb
+    ;;
+  'mysql')
+    mysql
     ;;
   *)
     log_info "Usage: $0 {all | convert | ... | cleanup}"
