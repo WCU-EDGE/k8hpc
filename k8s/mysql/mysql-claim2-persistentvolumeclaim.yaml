@@ -1,4 +1,19 @@
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql2
+spec:
+  capacity:
+   storage: 200Mi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: "/users/lngo/vc/mysql2"
+  storageClassName: local
+
+---
+
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
