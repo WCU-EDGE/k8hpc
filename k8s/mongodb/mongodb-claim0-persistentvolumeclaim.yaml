@@ -1,4 +1,19 @@
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongodb
+spec:
+  capacity:
+   storage: 200Mi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: "/users/lngo/vc/mongodb"
+  storageClassName: local
+
+---
+
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
