@@ -45,12 +45,12 @@ spec:
       restartPolicy: Always
       volumes:
         - name: etc-munge
-          persistentVolumeClaim:
-            claimName: etc-munge
+          hostPath:
+            path: /opt/keys/etc/etc-munge
         - name: etc-slurm
-          persistentVolumeClaim:
-            claimName: etc-slurm
+          hostPath:
+            path: /opt/keys/etc/etc-slurm
         - name: slurmdbd-state
-          persistentVolumeClaim:
-            claimName: slurmdbd-state
+          hostPath:
+            path: /opt/keys/etc/slurmdbd-state
 status: {}
