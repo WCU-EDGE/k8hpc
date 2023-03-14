@@ -13,7 +13,7 @@ convert() {
 }
 
 network() {
-  kubectl apply -f k8s/compute-networkpolicy.yaml
+  kubectl apply -f k8s/compute-network.yaml
 }
 
 volume() {
