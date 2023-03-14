@@ -1,0 +1,12 @@
+-rw-r--r-- 1 lngo EDGE   714 Mar 13 18:24 base-deployment.yaml
+-rw-r--r-- 1 lngo EDGE  1579 Mar 13 18:24 coldfront-deployment.yaml
+-rw-r--r-- 1 lngo EDGE  1561 Mar 13 18:24 cpn01-deployment.yaml
+-rw-r--r-- 1 lngo EDGE  1561 Mar 13 18:24 cpn02-deployment.yaml
+-rw-r--r-- 1 lngo EDGE  1389 Mar 13 18:24 frontend-deployment.yaml
+-rw-r--r-- 1 lngo EDGE  1038 Mar 13 18:24 ldap-deployment.yaml
+-rw-r--r-- 1 lngo EDGE  1361 Mar 13 18:24 mongodb-deployment.yaml
+-rw-r--r-- 1 lngo EDGE  1651 Mar 13 18:24 mysql-deployment.yaml
+-rw-r--r-- 1 lngo EDGE  1489 Mar 13 18:24 ondemand-deployment.yaml
+-rw-r--r-- 1 lngo EDGE  1579 Mar 13 18:24 slurmctld-deployment.yaml
+-rw-r--r-- 1 lngo EDGE  1431 Mar 13 18:24 slurmdbd-deployment.yaml
+-rw-r--r-- 1 lngo EDGE  1559 Mar 13 18:24 xdmod-deployment.yaml
