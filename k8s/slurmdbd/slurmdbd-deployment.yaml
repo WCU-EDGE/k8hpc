@@ -34,23 +34,6 @@ spec:
             - containerPort: 22
             - containerPort: 6819
           resources: {}
-          volumeMounts:
-            - mountPath: /etc/munge
-              name: etc-munge
-            - mountPath: /etc/slurm
-              name: etc-slurm
-            - mountPath: /var/lib/slurmd
-              name: slurmdbd-state
       hostname: slurmdbd
       restartPolicy: Always
-      volumes:
-        - name: etc-munge
-          hostPath:
-            path: /opt/keys/etc/etc-munge
-        - name: etc-slurm
-          hostPath:
-            path: /opt/keys/etc/etc-slurm
-        - name: slurmdbd-state
-          hostPath:
-            path: /opt/keys/etc/slurmdbd-state
 status: {}
