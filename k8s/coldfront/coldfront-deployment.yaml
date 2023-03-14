@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.28.0 (c4137012e)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: coldfront
+  name: coldfront
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: coldfront
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.28.0 (c4137012e)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/k8hpc-compute: "true"
+        io.kompose.service: coldfront
+    spec:
+      containers:
+        - args:
+            - serve
+          image: ubccr/hpcts:coldfront-2022.07
+          name: coldfront
+          ports:
+            - containerPort: 443
+              hostIP: 127.0.0.1
+            - containerPort: 22
+          resources: {}
+      hostname: coldfront
+      restartPolicy: Always
+status: {}
