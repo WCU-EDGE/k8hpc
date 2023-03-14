@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.28.0 (c4137012e)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: ondemand
+  name: ondemand
+spec:
+  ports:
+    - name: "3443"
+      port: 3443
+      targetPort: 3443
+    - name: "5554"
+      port: 5554
+      targetPort: 5554
+    - name: "22"
+      port: 22
+      targetPort: 22
+  selector:
+    io.kompose.service: ondemand
+status:
+  loadBalancer: {}
