@@ -47,11 +47,12 @@ spec:
       restartPolicy: Always
       volumes:
         - name: docker-initdb
-        hostPath:
-          path: /opt/keys/k8hpc/database
+          hostPath:
+            path: /opt/keys/k8hpc/database
         - name: mysql-conf
-        hostPath:
-          path: /opt/keys/k8hpc/database
+          hostPath:
+            path: /opt/keys/k8hpc/database
         - name: slurmdbd-conf
-          path: /opt/keys/k8hpc/slurm/slurmdbd.conf
+          hostPath:
+            path: /opt/keys/k8hpc/slurm/slurmdbd.conf
 status: {}
