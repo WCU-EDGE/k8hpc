@@ -9,6 +9,7 @@ metadata:
     io.kompose.service: cpn02
   name: cpn02
 spec:
+  type: ClusterIP
   ports:
     - name: "22"
       port: 22
