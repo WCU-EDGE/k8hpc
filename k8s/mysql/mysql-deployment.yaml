@@ -34,6 +34,24 @@ spec:
           ports:
             - containerPort: 3306
           resources: {}
+          volumeMounts:
+            - mountPath: /docker-entrypoint-initdb.d
+              name: docker-initdb
+            - mountPath: /etc/mysql/conf.d
+              name: mysql-conf
+            - mountPath: /etc/slurm/slurmdbd.conf
+              name: slurmdbd-conf
+            - mountPath: /var/lib/mysql
+              name: var-lib-mysql
       hostname: mysql
       restartPolicy: Always
+      volumes:
+        - name: docker-initdb
+        hostPath:
+          path: /opt/keys/k8hpc/database
+        - name: mysql-conf
+        hostPath:
+          path: /opt/keys/k8hpc/database
+        - name: slurmdbd-conf
+          path: /opt/keys/k8hpc/slurm/slurmdbd.conf
 status: {}
