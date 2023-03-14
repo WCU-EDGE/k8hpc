@@ -46,9 +46,9 @@ mysql() {
 }
 
 slurmdbd() {
-  kubectl apply -f k8s/slurmdbd/etc-munge-persistentvolumeclaim.yaml
-  kubectl apply -f k8s/slurmdbd/etc-slurm-persistantvolumeclaim.yaml
-  kubectl apply -f k8s/slurmdbd/slurmdbd-state-persistentvolumeclaim.yaml
+  # kubectl apply -f k8s/slurmdbd/etc-munge-persistentvolumeclaim.yaml
+  # kubectl apply -f k8s/slurmdbd/etc-slurm-persistantvolumeclaim.yaml
+  # kubectl apply -f k8s/slurmdbd/slurmdbd-state-persistentvolumeclaim.yaml
   kubectl apply -f k8s/slurmdbd/slurmdbd-service.yaml
   kubectl apply -f k8s/slurmdbd/slurmdbd-deployment.yaml
 }
