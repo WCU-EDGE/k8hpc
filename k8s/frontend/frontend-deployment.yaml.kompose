@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.28.0 (c4137012e)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: frontend
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.28.0 (c4137012e)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/k8hpc-compute: "true"
+        io.kompose.service: frontend
+    spec:
+      containers:
+        - args:
+            - frontend
+          image: ubccr/hpcts:slurm-2022.07
+          name: frontend
+          ports:
+            - containerPort: 22
+              hostIP: 127.0.0.1
+          resources: {}
+          volumeMounts:
+            - mountPath: /etc/munge
+              name: etc-munge
+            - mountPath: /etc/slurm
+              name: etc-slurm
+            - mountPath: /home
+              name: home
+      hostname: frontend
+      restartPolicy: Always
+      volumes:
+        - name: etc-munge
+          persistentVolumeClaim:
+            claimName: etc-munge
+        - name: etc-slurm
+          persistentVolumeClaim:
+            claimName: etc-slurm
+        - name: home
+          persistentVolumeClaim:
+            claimName: home
+status: {}
