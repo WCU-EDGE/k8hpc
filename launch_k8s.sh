@@ -54,35 +54,35 @@ slurmdbd() {
 }
 
 slurmctld() {
-  kubectl apply -f slurmctld-deployment.yaml
-  kubectl apply -f slurmctld-service.yaml
+  kubectl apply -f k8s/slurmctld/slurmctld-deployment.yaml
+  kubectl apply -f k8s/slurmctld/slurmctld-service.yaml
 }
 
 compute() {
-  kubectl apply -f cpn01-deployment.yaml
-  kubectl apply -f cpn01-service.yaml
-  kubectl apply -f cpn02-deployment.yaml
-  kubectl apply -f cpn02-service.yaml
+  kubectl apply -f k8s/cpn/cpn01-deployment.yaml
+  kubectl apply -f k8s/cpn/cpn01-service.yaml
+  kubectl apply -f k8s/cpn/cpn02-deployment.yaml
+  kubectl apply -f k8s/cpn/cpn02-service.yaml
 }
 
 frontend() {
-  kubectl apply -f frontend-deployment.yaml
-  kubectl apply -f frontend-service.yaml
+  kubectl apply -f k8s/frontend/frontend-deployment.yaml
+  kubectl apply -f k8s/frontend/frontend-service.yaml
 }
 
 coldfront() {
-  kubectl apply -f coldfront-deployment.yaml
-  kubectl apply -f coldfront-service.yaml
+  kubectl apply -f k8s/coldfront/coldfront-deployment.yaml
+  kubectl apply -f k8s/coldfront/coldfront-service.yaml
 }
 
 ondemand() {
-  kubectl apply -f ondemand-deployment.yaml
-  kubectl apply -f ondemand-service.yaml
+  kubectl apply -f k8s/ondemand/ondemand-deployment.yaml
+  kubectl apply -f k8s/ondemand/ondemand-service.yaml
 }
 
 xdmod() {
-  kubectl apply -f xdmod-deployment.yaml
-  kubectl apply -f xdmod-service.yaml
+  kubectl apply -f k8s/xdmod/xdmod-deployment.yaml
+  kubectl apply -f k8s/xdmod/xdmod-service.yaml
 }
 
 case "$1" in
