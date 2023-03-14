@@ -34,28 +34,6 @@ spec:
             - containerPort: 22
             - containerPort: 6817
           resources: {}
-          volumeMounts:
-            - mountPath: /etc/munge
-              name: etc-munge
-            - mountPath: /etc/slurm
-              name: etc-slurm
-            - mountPath: /home
-              name: home
-            - mountPath: /var/lib/slurmd
-              name: slurmctld-state
       hostname: slurmctld
       restartPolicy: Always
-      volumes:
-        - name: etc-munge
-          persistentVolumeClaim:
-            claimName: etc-munge
-        - name: etc-slurm
-          persistentVolumeClaim:
-            claimName: etc-slurm
-        - name: home
-          persistentVolumeClaim:
-            claimName: home
-        - name: slurmctld-state
-          persistentVolumeClaim:
-            claimName: slurmctld-state
 status: {}
