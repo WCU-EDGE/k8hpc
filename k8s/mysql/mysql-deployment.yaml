@@ -41,8 +41,6 @@ spec:
               name: mysql-conf
             - mountPath: /etc/slurm/slurmdbd.conf
               name: slurmdbd-conf
-            - mountPath: /var/lib/mysql
-              name: var-lib-mysql
       hostname: mysql
       restartPolicy: Always
       volumes:
@@ -55,7 +53,4 @@ spec:
         - name: slurmdbd-conf
           hostPath:
             path: /opt/keys/k8hpc/slurm/slurmdbd.conf
-        - name: var-lib-mysql
-          persistentVolumeClaim:
-            claimName: var-lib-mysql
 status: {}
