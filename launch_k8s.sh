@@ -22,7 +22,7 @@ volume() {
 
 ldap() {
   kubectl apply -f k8s/ldap/ldap-deployment.yaml
-  # missing service here
+  kubectl apply -f k8s/ldap/ldap-service.yaml
 }
 
 base() {
@@ -30,25 +30,16 @@ base() {
 }
 
 mongodb() {
-  kubectl apply -f k8s/mongodb/data-db-persistentvolumeclaim.yaml
-  kubectl apply -f k8s/mongodb/mongodb-claim0-persistentvolumeclaim.yaml
   kubectl apply -f k8s/mongodb/mongodb-service.yaml 
   kubectl apply -f k8s/mongodb/mongodb-deployment.yaml                         
 }
 
 mysql() {
-  #kubectl apply -f k8s/mysql/mysql-claim0-persistentvolumeclaim.yaml 
-  #kubectl apply -f k8s/mysql/mysql-claim1-persistentvolumeclaim.yaml 
-  #kubectl apply -f k8s/mysql/mysql-claim2-persistentvolumeclaim.yaml
-  #kubectl apply -f k8s/mysql/var-lib-mysql-pvc.yaml
   kubectl apply -f k8s/mysql/mysql-service.yaml 
   kubectl apply -f k8s/mysql/mysql-deployment.yaml
 }
 
 slurmdbd() {
-  # kubectl apply -f k8s/slurmdbd/etc-munge-persistentvolumeclaim.yaml
-  # kubectl apply -f k8s/slurmdbd/etc-slurm-persistantvolumeclaim.yaml
-  # kubectl apply -f k8s/slurmdbd/slurmdbd-state-persistentvolumeclaim.yaml
   kubectl apply -f k8s/slurmdbd/slurmdbd-service.yaml
   kubectl apply -f k8s/slurmdbd/slurmdbd-deployment.yaml
 }
@@ -88,7 +79,6 @@ xdmod() {
 case "$1" in
   'all')
     network
-    volume
     ldap
     mongodb
     mysql
