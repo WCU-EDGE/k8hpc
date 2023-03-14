@@ -55,4 +55,7 @@ spec:
         - name: slurmdbd-conf
           hostPath:
             path: /opt/keys/k8hpc/slurm/slurmdbd.conf
+        - name: var-lib-mysql
+          persistentVolumeClaim:
+            claimName: var-lib-mysql
 status: {}
