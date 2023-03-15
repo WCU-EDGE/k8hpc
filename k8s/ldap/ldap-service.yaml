@@ -14,7 +14,6 @@ spec:
     - name: "636"
       port: 636
       targetPort: 636
-  ports:
     - name: "389"
       port: 389
       targetPort: 389
