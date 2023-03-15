@@ -11,13 +11,13 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - name: tcp-ldap
-      port: 1389
-      targetPort: tcp-ldap
+    - name: "636"
+      port: 636
+      targetPort: 636
   ports:
-    - name: "3306"
-      port: 3306
-      targetPort: 3306
+    - name: "389"
+      port: 389
+      targetPort: 389
   selector:
     io.kompose.service: ldap
 status:
