@@ -6,13 +6,13 @@ metadata:
     kompose.version: 1.28.0 (c4137012e)
   creationTimestamp: null
   labels:
-    io.kompose.service: ldap
-  name: ldap
+    io.kompose.service: ldapsvc
+  name: ldapsvc
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: ldap
+      io.kompose.service: ldapsvc
   strategy: {}
   template:
     metadata:
@@ -22,7 +22,7 @@ spec:
       creationTimestamp: null
       labels:
         io.kompose.network/k8hpc-compute: "true"
-        io.kompose.service: ldap
+        io.kompose.service: ldapsvc
     spec:
       containers:
         - env:
@@ -35,8 +35,8 @@ spec:
             - name: LDAP_TLS_VERIFY_CLIENT
               value: never
           image: ubccr/hpcts:ldap-2022.07
-          name: ldap
+          name: ldapsvc
           resources: {}
-      hostname: ldap
+      hostname: ldapsvc
       restartPolicy: Always
 status: {}
