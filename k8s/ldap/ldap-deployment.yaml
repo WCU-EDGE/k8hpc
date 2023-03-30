@@ -24,6 +24,7 @@ spec:
         io.kompose.network/k8hpc-compute: "true"
         io.kompose.service: ldap
     spec:
+      enableServiceLinks: false
       containers:
         - env:
             - name: CONTAINER_LOG_LEVEL
