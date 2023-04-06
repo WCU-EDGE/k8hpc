@@ -76,6 +76,11 @@ xdmod() {
   kubectl apply -f k8s/xdmod/xdmod-service.yaml
 }
 
+ingress() {
+  kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.4.0/deploy/static/provider/baremetal/deploy.yaml
+  kubectl get svc -n ingress-nginx -o wide
+}
+
 case "$1" in
   'all')
     network
@@ -89,6 +94,7 @@ case "$1" in
     coldfront
     ondemand
     xdmod
+    ingress
     ;;
   'convert')
     convert
@@ -113,6 +119,9 @@ case "$1" in
     ;;
   'frontend')
     frontend
+    ;;
+  'ingress')
+    ingress
     ;;
   *)
     log_info "Usage: $0 {all | convert | ... | cleanup}"
