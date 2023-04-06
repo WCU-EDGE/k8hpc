@@ -79,7 +79,7 @@ xdmod() {
 ingress() {
   kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.4.0/deploy/static/provider/baremetal/deploy.yaml
   kubectl get svc -n ingress-nginx -o wide
-  kubectl create ingress k8hpc --class=nginx --rule="$(hostname -f):2443=coldfront:2443" --rule="$(hostname -f):3443=ondemand:80" --rule="$(hostname -f):4443=xdmod:4443"
+  kubectl create ingress k8hpc --class=nginx --rule="$(hostname -f)/coldfront=coldfront:2443" --rule="$(hostname -f)/ondemand=ondemand:3443" --rule="$(hostname -f)/xdmod=xdmod:4443"
 }
 
 case "$1" in
