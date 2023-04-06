@@ -111,6 +111,9 @@ case "$1" in
   'slurmdbd')
     slurmdbd
     ;;
+  'frontend')
+    frontend
+    ;;
   *)
     log_info "Usage: $0 {all | convert | ... | cleanup}"
     exit 1
