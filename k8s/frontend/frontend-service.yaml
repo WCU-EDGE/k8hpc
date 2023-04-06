@@ -9,11 +9,12 @@ metadata:
     io.kompose.service: frontend
   name: frontend
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - name: "6222"
       port: 6222
       targetPort: 22
+      nodePort: 30022
   selector:
     io.kompose.service: frontend
 status:
