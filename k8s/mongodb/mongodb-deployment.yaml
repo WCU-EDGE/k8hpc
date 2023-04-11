@@ -45,9 +45,15 @@ spec:
       restartPolicy: Always
       volumes:
         - name: mongodb-claim0
-          persistentVolumeClaim:
-            claimName: mongodb-claim0
+          hostPath:
+            path: /opt/keys/k8hpc/data_db
         - name: data-db
-          persistentVolumeClaim:
-            claimName: data-db
+          hostPath:
+            path: /opt/keys/k8hpc/data_db
+        #- name: mongodb-claim0
+          #persistentVolumeClaim:
+            #claimName: mongodb-claim0
+        #- name: data-db
+          #persistentVolumeClaim:
+            #claimName: data-db
 status: {}
