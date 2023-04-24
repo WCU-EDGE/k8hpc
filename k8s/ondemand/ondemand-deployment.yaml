@@ -28,7 +28,7 @@ spec:
       containers:
         - args:
             - serve
-          image: ubccr/hpcts:ondemand-2022.07
+          image: mikec1233/k8hpc:ondemand-2023.04
           name: ondemand
           ports:
             - containerPort: 3443
