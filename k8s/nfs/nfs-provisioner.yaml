@@ -140,15 +140,6 @@ spec:
         - name: export-volume
           hostPath:
             path: /mnt/ssd/nfs
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: kubernetes.io/hostname
-                operator: In
-                values:
-                - acepc
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
