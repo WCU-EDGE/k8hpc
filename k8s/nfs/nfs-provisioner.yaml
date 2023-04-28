@@ -139,7 +139,7 @@ spec:
       volumes:
         - name: export-volume
           hostPath:
-            path: /mnt/ssd/nfs
+            path: /opt/home/
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
