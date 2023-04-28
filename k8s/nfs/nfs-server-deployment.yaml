@@ -31,4 +31,4 @@ spec:
       volumes:
         - name: mypvc
           persistentVolumeClaim:
-            claimName: nfs-pv-provisioning-demo
+            claimName: nfs
