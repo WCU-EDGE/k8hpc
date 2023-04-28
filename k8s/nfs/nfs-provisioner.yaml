@@ -146,7 +146,7 @@ kind: StorageClass
 metadata:
   name: nfs-sc
   annotations:
-    storageclass.kubernetes.io/is-default-class: true
+    storageclass.kubernetes.io/is-default-class: "true"
 provisioner: 192.168.1.1/home
 mountOptions:
   - vers=4.1
