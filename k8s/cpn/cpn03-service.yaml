@@ -6,8 +6,8 @@ metadata:
     kompose.version: 1.28.0 (c4137012e)
   creationTimestamp: null
   labels:
-    io.kompose.service: cpn01
-  name: cpn01
+    io.kompose.service: cpn03
+  name: cpn03
 spec:
   type: ClusterIP
   ports:
@@ -18,6 +18,6 @@ spec:
       port: 6818
       targetPort: 6818
   selector:
-    io.kompose.service: cpn01
+    io.kompose.service: cpn03
 status:
   loadBalancer: {}
