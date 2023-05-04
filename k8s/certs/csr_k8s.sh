@@ -13,7 +13,7 @@ metadata:
   name: ${mypod}.${myns}
 spec:
   request: $(cat ${mypod}.csr | base64 | tr -d '\n')
-  signerName: k8hpc/admin
+  signerName: local.cluster/admin
   usages:
   - digital signature
   - key encipherment
