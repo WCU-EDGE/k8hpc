@@ -5,7 +5,7 @@ myns="default"
 
 for mypod in ondemand coldfront xdmod
 do
-  cat <<EOF | cfssl genkey - | cfssljson -bare server
+  cat <<EOF | cfssl genkey - | cfssljson -bare server \
   {
     "hosts": [
       "${mypod}.${myns}.svc.cluster.local",
