@@ -13,7 +13,7 @@ metadata:
   name: ${mypod}.${myns}
 spec:
   request: $(cat ${mypod}.csr | base64 | tr -d '\n')
-  signerName: kubernetes.io/kubelet-serving
+  signerName: k8hpc/admin
   usages:
   - digital signature
   - key encipherment
