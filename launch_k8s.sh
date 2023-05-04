@@ -54,6 +54,10 @@ compute() {
   kubectl apply -f k8s/cpn/cpn01-service.yaml
   kubectl apply -f k8s/cpn/cpn02-deployment.yaml
   kubectl apply -f k8s/cpn/cpn02-service.yaml
+  kubectl apply -f k8s/cpn/cpn03-deployment.yaml
+  kubectl apply -f k8s/cpn/cpn03-service.yaml
+  kubectl apply -f k8s/cpn/cpn04-deployment.yaml
+  kubectl apply -f k8s/cpn/cpn04-service.yaml
 }
 
 frontend() {
