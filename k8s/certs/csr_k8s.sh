@@ -13,7 +13,7 @@ metadata:
   name: ${mypod}.${myns}
 spec:
   request: $(cat ${mypod}.csr | base64 | tr -d '\n')
-  signerName: kubernetes.io/kube-apiserver-client
+  signerName: kubernetes.io/kubelet-serving
   usages:
   - digital signature
   - key encipherment
