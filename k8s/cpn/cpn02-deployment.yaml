@@ -33,7 +33,14 @@ spec:
           ports:
             - containerPort: 22
             - containerPort: 6818
+          volumeMounts:
+            - name: home
+              mountPath: /opt/home
           resources: {}
       hostname: cpn02
+      volumes:
+        - name: home
+          hostPath:
+            path: /opt/home
       restartPolicy: Always
 status: {}
