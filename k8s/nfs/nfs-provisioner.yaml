@@ -71,8 +71,6 @@ metadata:
   labels:
     app: nfs-provisioner
 spec:
-  type: ClusterIP
-  clusterIP: 10.0.200.2
   ports:
     - name: nfs
       port: 2049
