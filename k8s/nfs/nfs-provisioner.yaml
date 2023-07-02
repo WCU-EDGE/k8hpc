@@ -122,7 +122,7 @@ spec:
                 - DAC_READ_SEARCH
                 - SYS_RESOURCE
           args:
-            - "-provisioner=192.168.1.1/opt/home"
+            - "-provisioner=192.168.1.1/home"
           env:
             - name: POD_IP
               valueFrom:
@@ -149,6 +149,6 @@ metadata:
   name: nfs-sc
   annotations:
     storageclass.kubernetes.io/is-default-class: "true"
-provisioner: 192.168.1.1/opt/home
+provisioner: 192.168.1.1/home
 mountOptions:
   - vers=4.1
